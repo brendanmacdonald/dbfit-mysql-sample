@@ -1,19 +1,27 @@
+{{{Compare Stored Queries Hide Matching Rows}}}
+!|Store Query|select COUNTRYCODE from CITY order by COUNTRYCODE|query1|
+
+!|Store Query|select COUNTRYCODE from CITY order by COUNTRYCODE|query2|
+
+!|Compare Stored Queries Hide Matching Rows|query1|query2|
+|COUNTRYCODE                               |n?           |
+
 {{{CITY table - inspect}}}
 |inspect table|city|
 
 {{{CITY table - select the 'name' value from the top row.}}}
 !| Query|select name from city limit 1|
-|name                                 |
+|name?                                |
 |Kabul                                |
 
 {{{CITY table - select the top 'countrycode' value when ordered by countrycode ascending.}}}
 !| Query|select countrycode from city order by countrycode asc limit 1|
-|countrycode                                                          |
+|countrycode?                                                         |
 |ABW                                                                  |
 
 {{{CITY table - verify column names, nullable, key. (type like char(25) doesn't work for mysql).}}}
 !| Query    |show columns from city|
-|Field      |Null       |Key       |
+|Field?     |Null?      |Key?      |
 |ID         |NO         |PRI       |
 |Name       |NO         |          |
 |CountryCode|NO         |MUL       |
@@ -22,7 +30,7 @@
 
 {{{CITY table - verify column names, nullable, key. (type like char(25) doesn't work for mysql).}}}
 !|Query     |describe city|
-|Field      |Null   |Key  |
+|Field?     |Null?  |Key? |
 |ID         |NO     |PRI  |
 |Name       |NO     |     |
 |CountryCode|NO     |MUL  |
@@ -30,17 +38,17 @@
 |Population |NO     |     |
 
 {{{CITY table - verify column names, nullable, key. (type like char(25) doesn't work for mysql).}}}
-!| Query      |select * from information_schema.Columns where table_schema = 'world' and table_name = 'city' order bY ordinal_position ASC|
-|TABLE_CATALOG|COLUMN_NAME                              |IS_NULLABLE                              |COLUMN_KEY                             |
-|def          |ID                                       |NO                                       |PRI                                    |
-|def          |Name                                     |NO                                       |                                       |
-|def          |CountryCode                              |NO                                       |MUL                                    |
-|def          |District                                 |NO                                       |                                       |
-|def          |Population                               |NO                                       |                                       |
+!| Query       |select * from information_schema.Columns where table_schema = 'world' and table_name = 'city' order bY ordinal_position ASC|
+|TABLE_CATALOG?|COLUMN_NAME?                             |IS_NULLABLE?                             |COLUMN_KEY?                            |
+|def           |ID                                       |NO                                       |PRI                                    |
+|def           |Name                                     |NO                                       |                                       |
+|def           |CountryCode                              |NO                                       |MUL                                    |
+|def           |District                                 |NO                                       |                                       |
+|def           |Population                               |NO                                       |                                       |
 
 {{{Verify all tables within the database.}}}
 !| Query        |select * from information_schema.Tables where table_schema = 'world'|
-|TABLE_NAME     |TABLE_TYPE                                                          |
+|TABLE_NAME?    |TABLE_TYPE?                                                         |
 |city           |BASE TABLE                                                          |
 |country        |BASE TABLE                                                          |
 |countrylanguage|BASE TABLE                                                          |
@@ -55,3 +63,10 @@
 |index_name?|column_name?                                                                                  |
 |CountryCode|CountryCode                                                                                   |
 |PRIMARY    |ID                                                                                            |
+
+{{{CITY table - validating the index.}}}
+|Query      |SHOW INDEXES FROM city|
+|key_name?  |column_name?          |
+|PRIMARY    |ID                    |
+|CountryCode|CountryCode           |
+

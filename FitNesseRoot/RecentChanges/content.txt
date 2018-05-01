@@ -1,6 +1,0 @@
-|CityTestSuite.SetUp||13:24:01 Mon, Apr 30, 2018|
-|CityTestSuite.MySqlTest||12:15:22 Mon, Apr 30, 2018|
-|CityTestSuite.HelloWorldTest||17:08:02 Fri, Apr 27, 2018|
-|CityTestSuite||14:25:07 Fri, Apr 27, 2018|
-|HelloWorldTest||14:17:53 Fri, Apr 27, 2018|
-|HelloWorldTest.CityTests||14:11:23 Fri, Apr 27, 2018|
