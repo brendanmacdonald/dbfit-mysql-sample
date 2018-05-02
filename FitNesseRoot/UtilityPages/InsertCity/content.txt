@@ -1,0 +1,3 @@
+!|Insert    |City                                         |
+|name       |countrycode   |district   |population   |id? |
+|${cityName}|${countryCode}|${district}|${population}|>>id|

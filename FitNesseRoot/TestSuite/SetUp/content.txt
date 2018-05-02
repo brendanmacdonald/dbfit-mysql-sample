@@ -3,4 +3,5 @@
 
 #!| Connect | localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC | root | SLMonday_3 |
 !| ConnectUsingFile|FitNesseRoot\connectionDetails.txt|
-#
+
+!|ClearParameters|
